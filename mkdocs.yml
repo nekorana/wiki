@@ -15,6 +15,7 @@ nav:
       - Java8新特性之lambda函数: java/se/lambda.md 
     - Java多线程: 
       - 介绍: java/mul-thread/index.md
+      - 在Java中进行多线程编程: java/mul-thread/
   - leetcode:
     - 94.二叉树的中序遍历: leetcode/inorderTraversal.md
   - About: about.md
@@ -58,8 +59,8 @@ theme:
     code: 'Fira Mono'
 
 markdown_extensions:
-  - document-offsets-injection:
-      # debug: true
+  # - document-offsets-injection:
+  #     # debug: true
   - admonition
   - def_list
   - footnotes
