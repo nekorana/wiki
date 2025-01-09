@@ -22,75 +22,75 @@ nav:
 #[UI]
 theme:
   name: material
-  highlight: monokai
+  # custom_dir: 'mkdocs-material/material/templates'
+  static_templates:
+    - 404.html
+  language: 'zh'
   palette:
-    primary: deep purple
-  language: zh
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  include_search_page: false
+  search_index_only: true
+  favicon: 'favicon.ico'
+  icon:
+    logo: 'material/school'
+  features:
+    - content.action.edit
+    - navigation.tabs
+    - navigation.instant
   font:
-    text: Roboto
-    code: Fira Code
+    text: 'Fira Sans'
+    code: 'Fira Mono'
 
 markdown_extensions:
-  - abbr
-  - attr_list
+  - document-offsets-injection:
+      # debug: true
   - admonition
   - def_list
   - footnotes
-  - md_in_html
-  - meta # 支持Markdown文件上方自定义标题标签等
+  - meta
+  - toc:
+      permalink: ""
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.caret
-  - pymdownx.betterem
   - pymdownx.critic
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.highlight:
+      linenums: true
   - pymdownx.inlinehilite
   - pymdownx.keys
+  - pymdownx.magiclink
   - pymdownx.mark
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.progressbar
   - pymdownx.smartsymbols
-  - pymdownx.tilde
   - pymdownx.superfences:
       custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format # 代码块高亮插件
-  - pymdownx.arithmatex:  # latex支持
-      generic: true
-  - toc:
-      permalink: true # 固定标题位置为当前位置
-  - pymdownx.highlight: # 代码块高亮
-      anchor_linenums: true
-      linenums: true # 显示行号
-      # auto_title: true # 显示编程语言名称
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tabbed:
-      alternate_style: true
+        - name: math
+          class: arithmatex
+          format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
   - pymdownx.tasklist:
       custom_checkbox: true
-  - markdown.extensions.toc:
-      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
-      permalink: "\ue157"
-
-extra_javascript:
-  - javascripts/extra.js  #自定义javascript
-  - javascripts/mathjax.js  #Latex支持
-  - https://polyfill.io/v3/polyfill.min.js?features=es6   #Latex支持
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js   #Latex支持
-  - ckplayer/js/ckplayer.js #播放器配置
-  - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js  #gitalk支持
-  - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js #忘了
-
-extra_css:
-  - stylesheets/extra.css # 自定义CSS
-  - stylesheets/link.css  #友链配置
-  # - stylesheets/video.css #播放器可选配置
-  - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css #gitalk支持
-  - ckplayer/css/ckplayer.css   #播放器配置
-  - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css  # font-awesome表情支持
-  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css  #分享支持
-
-  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css  #字体
-  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css #字体
-  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css  #字体
-  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css  #字体
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
